@@ -25,3 +25,24 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+##PASOS
+creacion de proyecto 
+ng new tpclinica
+creacion de enviroment 
+ng g enviroments
+ addiccion configuracion del archivo gitignore de enviroment folder
+ creacion de proyecto en  firebase
+ registro app 
+ creo base de datos en modo produccion y cambio regla a true
+ creo storage y cambio regla a true
+ en proyecto en la terminal ejecuto comando
+ npm install firebase
+ ng add @angular/fire 
+ seleccion de angular autenticacion cloud y firestore
+ en proyecto paso objecto de configuracion de la app. config.ts  en 
+ provideFirebaseApp(() => initializeApp({...}))  paso los datos que se configuraron ahi a lkos archivos environment
+ 
+
+
+

@@ -1,0 +1,124 @@
+<div class="container w-75">
+  <h4>{{titulo}}</h4>
+  <form enctype="multipart/form-data" method="post" [formGroup]="formGroupRegistro" (ngSubmit)="onSubmit()">
+    <!-- 2 column grid layout with text inputs for the first and last names -->
+    <div class="row mb-4">
+      <div class="col">
+        <div data-mdb-input-init class="form-outline">
+          <input type="text" id="txt_name" class="form-control" formControlName="txt_name" />
+          <label class="form-label" for="txt_name">nombre</label>
+        </div>
+      </div>
+      <div class="col">
+        <div data-mdb-input-init class="form-outline">
+          <input type="text" id="txt_apellido" class="form-control" formControlName="txt_apellido"/>
+          <label class="form-label" for="txt_apellido">apellido</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Text input -->
+    <div data-mdb-input-init class="form-outline mb-4">
+      <input type="text" id="txt_dni" class="form-control"formControlName="txt_dni" />
+      <label class="form-label" for="txt_dni">dni</label>
+    </div>
+
+
+    
+  <ng-template #obrasocial>
+    <!-- Text input -->
+
+  <div data-mdb-input-init class="form-outline mb-4">
+    <input type="text" id="txt_obra_social" class="form-control"  formControlName="txt_obra_social"/>
+    <label class="form-label" for="txt_obra_social">obra social</label>
+  </div>
+  
+  </ng-template>
+
+    @if(mostrarInputObraSocial)
+    {
+      <ng-container *ngTemplateOutlet="obrasocial"></ng-container>
+
+
+    }
+
+    <!-- Email input -->
+    <div data-mdb-input-init class="form-outline mb-4">
+      <input type="email" id="txt_email" class="form-control" formControlName="txt_email"/>
+      <label class="form-label" for="txt_email">Email</label>
+    </div>
+    <!-- Password input -->
+    <div data-mdb-input-init class="form-outline mb-4">
+      <input type="password" id="txt_pass" class="form-control"  formControlName="txt_pass"/>
+      <label class="form-label" for="txt_pass">clave</label>
+    </div>
+
+    <!-- Number input -->
+    <div data-mdb-input-init class="form-outline mb-4">
+      <input type="number" id="txt_edad" class="form-control"  formControlName="txt_edad">
+      <label class="form-label" for="txt_edad">edad</label>
+    </div>
+
+
+
+    <!-- foto input -->
+    <div data-mdb-input-init class="form-outline mb-4">
+      <input type="file" id="txt_foto" class="form-control" [multiple]="titulo=='paciente'" formControlName="txt_foto"
+        accept=".png, .jpg, .jpeg" />
+      <label class="form-label" for="txt_foto">foto</label>
+    </div>
+
+
+    <!-- Message input -->
+    <!-- <div data-mdb-input-init class="form-outline mb-4">
+      <textarea class="form-control" id="form6Example7" rows="4"></textarea>
+      <label class="form-label" for="form6Example7">Additional information</label>
+    </div> -->
+
+
+    @if(titulo=="especialista")
+    {
+    <div data-mdb-input-init class="form-outline mb-4">
+
+      <select class="form-select" multiple aria-label="Multiple select example" id="txt_especialidades" formControlName="txt_especialidades">
+        <option selected>Open this select menu</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+
+    </div>
+
+    <!-- Checkbox -->
+    <div class="form-check d-flex justify-content-center mb-4">
+      <input class="form-check-input me-2" type="checkbox" value="" id="txt_add_especialidad" (change)="onChange($event)"/>
+      <label class="form-check-label" for="txt_add_especialidad"> add especialidad? </label>
+    </div>
+
+
+  <ng-template #addespecialidad>
+    <!-- Text input -->
+    <div data-mdb-input-init class="form-outline mb-4">
+      <input type="text" id="txt_nueva_especialidad" class="form-control" required/>
+      <label class="form-label" for="txt_nueva_especialidad"> especialidad</label>
+    </div>
+  
+  
+  </ng-template>
+@if(mostrarinputAddEspecialista)
+{
+  <ng-container *ngTemplateOutlet="addespecialidad"></ng-container>
+}
+
+    }
+    <span>
+      {{mensaje}}
+    </span>
+
+    <!-- Submit button -->
+    <!-- <button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block mb-4" [disabled]="!formGroupRegistro.valid">Registrar</button> -->
+    <button data-mdb-ripple-init type="submit" class="btn btn-primary btn-block mb-4" >Registrar</button>
+
+  </form>
+
+</div>
